@@ -45,11 +45,11 @@ public:
 
 int main()
 {
-    toothbrush myfriend();
+    toothbrush myfriend;
     toothbrush bought(3.24, 0.5);
     cout<<bought.price_after_reduction()<<endl;
-    toothbrush mine();
-    //cout<<mine.opinion()<<endl;
+    toothbrush mine;
+    cout<<mine.opinion()<<endl;
     //one more method added to exercise1
 }
 
