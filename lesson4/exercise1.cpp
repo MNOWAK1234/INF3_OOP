@@ -42,4 +42,6 @@ int main()
 {
     Steering Tesla(2.67,56,10);
     cout<<Tesla.state()<<endl;
+    Steering Mercedes(3.43,66,14);
+    Car MercedesUpgrade=Mercedes.tuning(4);
 }
