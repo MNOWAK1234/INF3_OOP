@@ -1,4 +1,4 @@
-///cannot check if my code compile
+///cannot check if my code compile because of too old c++ version
 
 #include <iostream>
 #include <map>
@@ -73,7 +73,14 @@ public:
 
 };
 
-int main() {
-  // TODO: showcase usage
-  return 0;
+int main()
+{
+ FakeCantor MyCantor;
+  float rate=MyCantor.EuroToRate("USD");
+  Euro EuroCurrency(rate);
+  std::cout<<EuroCurrency.Abbreviation()<<std::endl;
+  std::cout<<EuroCurrency.Symbol()<<std::endl;
+  std::cout<<EuroCurrency.Balance()<<std::endl;
+  std::cout<<EuroCurrency.DollarExchangeRate()<<std::endl;
+ return 0;
 }
