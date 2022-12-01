@@ -14,15 +14,15 @@ public:
     }
     int maximum()
     {
-        return max(a,b);
+        return max(this->a,this->b);
     }
     int minimum()
     {
-        return min(a,b);
+        return min(this->a,this->b);
     }
     double average()
     {
-        return ((double)a+(double)b)/2;
+        return ((double)this->a+(double)this->b)/2;
     }
 };
 
