@@ -15,6 +15,6 @@ public class Main {
         teams = option.read(translated);
         Simulation season = new Simulation(coded, teams);
         season.simulate();
-        season.readResults();
+        season.readResults(teams, coded);
     }
 }

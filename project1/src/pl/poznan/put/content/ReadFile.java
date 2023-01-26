@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.Random;
 
 public class ReadFile {
   public String translate (String competition) {
@@ -31,8 +32,19 @@ public class ReadFile {
         int ovr = 0;
         String name = data.substring(0,i);
         String ovrUnprocessed = data.substring(i+1,data.length());
-        ovr = Integer.parseInt(ovrUnprocessed);
+        try{
+          ovr = Integer.parseInt(ovrUnprocessed);
+        } catch (NumberFormatException e) {
+          System.out.println("Error: " + ovrUnprocessed + " is not a valid integer.");
+          Random r = new Random();
+          ovr = r.nextInt(1000)+1;
+      }catch(ArithmeticException e){
+          System.out.println("Error: " + ovrUnprocessed + " is not a valid number.");
+          Random r = new Random();
+          ovr = r.nextInt(1000)+1;
+      }finally{
         teams.add(new Team(name, ovr));
+      }
       }
       myReader.close();
       return teams;

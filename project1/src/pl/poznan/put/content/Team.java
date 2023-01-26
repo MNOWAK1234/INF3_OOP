@@ -1,10 +1,6 @@
 package pl.poznan.put.content;
 
 public class Team {
-    /*private String name;
-    private int points;
-    private int ovr;
-    private String place;*/
     String name;
     int points;
     int ovr;
@@ -12,6 +8,12 @@ public class Team {
   
     public Team(String name, int ovr) {
       this.name = name;
+      this.points = 0;
+      this.ovr = ovr;
+      this.place = "";
+    }
+    public Team(int ovr){
+      this.name = "Artificial";
       this.points = 0;
       this.ovr = ovr;
       this.place = "";
