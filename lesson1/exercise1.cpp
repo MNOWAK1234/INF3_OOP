@@ -1,64 +1,84 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-class human
+class Human
 {
-    public:
-        string F_name;
-        string L_name;
-        int age;
-        bool male;
-        void saysth(string what, string who)
-        {
-            cout<<who<<" check out this: "<<what<<endl;
-        }
+public:
+    string firstName;
+    string lastName;
+    int age;
+    void saySomething(string what)
+    {
+        cout<<what<<endl;
+    }
+    string fullname()
+    {
+        return (this->firstName + " " + this->lastName);
+    }
+};
 
-};
-class device
+class Device
 {
-    public:
-        string type;
-        bool electrical;
-        string ID;
-        string owner;
+public:
+    string type;
+    bool electrical;
+    string ID;
+    Human owner;
+    void buy()
+    {
+        cout<<this->owner.fullname()<<" got device "<<this->ID<<endl;
+    }
+    void sell()
+    {
+        cout<<this->owner.fullname()<<" sold device "<<this->ID<<endl;
+    }
 };
-class action
+
+class Store
 {
-    public:
-        string name;
-        string performer;
-        bool timeconsuming;
-        int difficulity; //scale 1-10
-        bool change_gender(int m)
+public:
+    string address;
+    vector<Human> owners;
+    void newClient(Human person)
+    {
+        owners.push_back(person);
+    }
+    void clients()
+    {
+        cout<<"List of current clients:"<<endl;
+        for(int i=0; i<this->owners.size(); i++)
         {
-            if(m<5)return 1;
-            else return 0;
+            cout<<this->owners[i].fullname()<<endl;
         }
+    }
 };
 
 int main()
 {
-    human me;
-    me.F_name="Mikolaj";
-    me.L_name="Nowak";
-    me.age=20;
-    me.male=1;
+    Human Me;
+    Me.firstName="Mikolaj";
+    Me.lastName="Nowak";
+    Me.age=20;
+    Me.saySomething("I was born");
 
-    device my_computer;
-    my_computer.type="machine";
-    my_computer.electrical=1;
-    my_computer.ID="234.235.0.67";
-    //my_computer.owner=me;
+    Human Friend;
+    Friend.firstName="Jan";
+    Friend.lastName="Kowalski";
+    Friend.age=25;
 
-    action typing;
-    typing.name="coding";
-    typing.timeconsuming=0;
-    typing.difficulity=6;
-    //typing.performer=me;
+    Device Microwave;
+    Microwave.type="machine";
+    Microwave.electrical=1;
+    Microwave.ID="234.235.0.67";
+    Microwave.owner=Me;
+    Microwave.buy();
 
-    me.saysth("WORD!",me.F_name);
-    cout<<me.male<<endl;
-    me.male=typing.change_gender(typing.difficulity);
-    cout<<me.male<<endl;
+    Store Lidl;
+    Lidl.address="White St. 87/6";
+    Lidl.newClient(Me);
+    Lidl.clients();
+    Lidl.newClient(Friend);
+    Lidl.clients();
 }
