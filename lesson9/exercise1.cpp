@@ -3,18 +3,20 @@
 using namespace std;
 
 class Game{
-    public:
-    virtual int result()=0;
+public:
+    virtual string result()=0;
 };
 
 class FakeFootballGame : public Game {
-    public:
-    int result(){
-        return 420;
+public:
+    virtual string result()
+    {
+        return "1 - 1";
     }
 };
 
 int main(){
-    FakeFootballGame fake_game;
-    cout<<fake_game.result()<<endl;
+    FakeFootballGame fakeGame;
+    if(fakeGame.result()=="1 - 1") cout<<"Correct"<<endl;
+    else cout<<"Incorrect"<<endl;
 }
