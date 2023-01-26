@@ -21,9 +21,9 @@ public:
     }
     double doubleValue()
     {
-        if(this->base<=0)throw(1);
-        else if(this->base==1)throw(2);
-        else if(this->argument<=0)throw(3);
+        if(this->base<=0)throw invalid_argument("Base must be positive.");
+        else if(this->base==1)throw invalid_argument("Base must not be equal to 1.");
+        else if(this->argument<=0)throw invalid_argument("Argument must be positive.");
         else return log(this->argument)/log(this->base);
     }
 };
@@ -38,13 +38,11 @@ int main()
         numbersOneAndTwo.parameters(testBase,testArgument);
         cout<<numbersOneAndTwo.doubleValue()<<endl;
     }
-    catch(int i)
+    catch(const invalid_argument &e)
     {
         cout<<"Logarithm of a positive number x to the positive base b!=1 is the exponent to which b must be raised, to produce x."<<endl;
         cout<<endl;
         cout<<"Error: ";
-        if(i==1)cout<<"Base must be positive."<<endl;
-        else if(i==2)cout<<"Base must not be equal to 1."<<endl;
-        else if(i==3)cout<<"Argument must be positive."<<endl;
+        cout<<e.what()<<endl;
     }
 }
