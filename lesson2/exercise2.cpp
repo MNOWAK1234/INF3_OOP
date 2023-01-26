@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class toothbrush
+class Toothbrush
 {
 public:
     string owner;
@@ -10,46 +10,44 @@ public:
     double discount;
     string colour;
     string manufacturer;
-    toothbrush()
+    Toothbrush()
     {
-        owner="me";
-        original_price=1.6;
-        discount=0;
-        colour="red";
-        manufacturer="teect";
+        this->owner="me";
+        this->original_price=1.6;
+        this->discount=0;
+        this->colour="red";
+        this->manufacturer="teect";
     }
-    toothbrush(double p, double d)
+    Toothbrush(double p, double d)
     {
-        original_price=p;
-        discount=d;
+        this->original_price=p;
+        this->discount=d;
     }
-    toothbrush(string own, string c)
+    Toothbrush(string own, string c)
     {
-        owner=own;
-        colour=c;
+        this->owner=own;
+        this->colour=c;
     }
-    double price_after_reduction()
+    double priceAfterReduction()
     {
-        return original_price*(1-discount);
+        return this->original_price*(1-this->discount);
     }
     string opinion()
     {
-        if(colour=="blue" && manufacturer.size()<6 && price_after_reduction()<5)return "good product";
+        if(this->colour=="blue" && this->manufacturer.size()<6 && this->priceAfterReduction()<5)return "good product";
         else return "bad product";
     }
-    bool comp(toothbrush &one, toothbrush &two)
+    bool comp(Toothbrush &One, Toothbrush &Two)
     {
-        return one.discount>two.discount;
+        return One.discount>Two.discount;
     }
 };
 
 int main()
 {
-    toothbrush myfriend;
-    toothbrush bought(3.24, 0.5);
-    cout<<bought.price_after_reduction()<<endl;
-    toothbrush mine;
-    cout<<mine.opinion()<<endl;
-    //one more method added to exercise1
+    Toothbrush MyFriend;
+    Toothbrush Bought(3.24, 0.5);
+    cout<<Bought.priceAfterReduction()<<endl;
+    Toothbrush Mine;
+    cout<<Mine.opinion()<<endl;
 }
-
