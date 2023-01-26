@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class glass
+class Glass
 {
 public:
     string shape;
@@ -10,59 +10,59 @@ public:
     int level_of_hardness;
     string usage;
     //default constructor
-    glass()
+    Glass()
     {
-        shape="irregular";
-        ymax=10.4;
-        xmax=7.6;
-        zmax=8.9;
-        level_of_hardness=9;
-        usage="window";
+        this->shape="irregular";
+        this->ymax=10.4;
+        this->xmax=7.6;
+        this->zmax=8.9;
+        this->level_of_hardness=9;
+        this->usage="window";
         cout<<"Created default glass"<<endl;
     }
     //parametrised
-    glass(double x, double y, double z)
+    Glass(double x, double y, double z)
     {
-        xmax=x;
-        ymax=y;
-        zmax=z;
+        this->xmax=x;
+        this->ymax=y;
+        this->zmax=z;
     }
-    glass(string s, double param)
+    Glass(string s, double param)
     {
-        shape=s;
-        xmax=ymax=zmax=param;
+        this->shape=s;
+        this->xmax=this->ymax=this->zmax=param;
     }
-    glass(glass &obj)
+    Glass(Glass &obj)
     {
-        shape=obj.shape;
-        level_of_hardness=obj.level_of_hardness;
+        this->shape=obj.shape;
+        this->level_of_hardness=obj.level_of_hardness;
     }
-    glass(glass &obj, int magnify)
+    Glass(Glass &obj, int magnify)
     {
-        shape=obj.shape;
-        xmax=obj.xmax*magnify;
-        ymax=obj.ymax*magnify;
-        zmax=obj.zmax*magnify;
+        this->shape=obj.shape;
+        this->xmax=obj.xmax*magnify;
+        this->ymax=obj.ymax*magnify;
+        this->zmax=obj.zmax*magnify;
     }
     double volume()
     {
-        if(shape=="sphere") return xmax*ymax*zmax*3.14/8;
-        else if(shape=="cube")return xmax*xmax*xmax;
-        else return xmax*ymax*zmax;
+        if(shape=="sphere") return this->xmax*this->ymax*this->zmax*3.14/8;
+        else if(shape=="cube")return this->xmax*this->xmax*this->xmax;
+        else return this->xmax*this->ymax*this->zmax;
     }
 };
 
 int main()
 {
-    glass random;
-    glass one(10,10,10);
-    cout<<one.volume()<<endl;
-    glass two("cube", 10);
-    cout<<two.volume()<<endl;
-    glass copied(random);
-    cout<<copied.level_of_hardness<<endl;
-    glass sph ("sphere", 10);
-    cout<<sph.volume()<<endl;
-    glass magnified(sph,2);
-    cout<<magnified.volume()<<endl;
+    Glass Random;
+    Glass One(10,10,10);
+    cout<<One.volume()<<endl;
+    Glass Two("cube", 10);
+    cout<<Two.volume()<<endl;
+    Glass Copied(Random);
+    cout<<Copied.level_of_hardness<<endl;
+    Glass Sphere("sphere", 10);
+    cout<<Sphere.volume()<<endl;
+    Glass Magnified(Sphere,2);
+    cout<<Magnified.volume()<<endl;
 }
