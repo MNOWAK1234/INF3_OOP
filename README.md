@@ -1,1 +1,3 @@
-This repository contains a collection of academic exercises and one Object Oriented Programming project (Sporting events simulator in java).
+# OOP Classes term 3 Poznan University of Technology
+* Academic exercises about Object Oriented Programming<br/><br/>
+* Project (Sporting events simulator in java) <br/><br/>
